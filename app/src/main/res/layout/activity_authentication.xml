@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AuthentificationActivity">
+    tools:context=".AuthenticationActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             android:id="@+id/AuthButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Authentificate" />
+            android:text="Authenticate" />
 
         <TextView
             android:id="@+id/resultTextView"

@@ -8,7 +8,6 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import org.json.JSONObject
-import org.w3c.dom.Text
 import java.io.*
 import java.net.HttpURLConnection
 import java.net.MalformedURLException
@@ -16,18 +15,18 @@ import java.net.URL
 import java.nio.charset.StandardCharsets
 import java.util.stream.Collectors.joining
 
-class AuthentificationActivity : AppCompatActivity() {
+class AuthenticationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_authentification)
+        setContentView(R.layout.activity_authentication)
         val authButton=findViewById<Button>(R.id.AuthButton)
 
-        //bind the starting of a thread running the authentification to the button to prevent locking the ui
-        authButton?.setOnClickListener(){v -> Thread(Runnable {Authentificate()  }).start()
+        //bind the starting of a thread running the authentication to the button to prevent locking the ui
+        authButton?.setOnClickListener(){v -> Thread(Runnable {Authenticate()  }).start()
         }
         }
-    //authentification function
-    fun Authentificate() {
+    //authentication function
+    fun Authenticate() {
         var url: URL? = null
 
         val basicAuth = "Basic " + Base64.encodeToString(
@@ -51,7 +50,7 @@ class AuthentificationActivity : AppCompatActivity() {
                 val res="are you authenticated?".plus(json["authenticated"].toString())
                 
                 //update ui with request result
-                this@AuthentificationActivity.runOnUiThread(Runnable {
+                this@AuthenticationActivity.runOnUiThread(Runnable {
                     findViewById<TextView>(R.id.resultTextView).text=res
                 })
 
